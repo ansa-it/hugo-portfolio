@@ -1,0 +1,3 @@
+{{ $claim := .Site.Data.homepage.header.claim }}
+{{ $logo := .Site.Data.homepage.header.logo  }}
+{{ partial "menu.html" (dict "menuID" "main" "page" . "claim" $claim "logo" $logo ) }}

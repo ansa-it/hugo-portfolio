@@ -1,0 +1,169 @@
+{{ define "main" }} 
+  <section></section>
+
+  <!-- Hero section --> 
+  {{ if .Site.Data.homepage.hero.enable }}
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {{ range $index, $item := .Site.Data.homepage.hero.item }}
+        <div class="carousel-item{{ if eq $index 0 }} active{{ end }}">
+          <img src="{{ .image }}" class="d-block w-100 h-100">
+          <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0">
+            {{ .headline }}
+          </div>     
+        </div>
+      {{ end }}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  {{ end }}
+
+  <!-- About -->
+  {{ if .Site.Data.homepage.about.enable }}
+  <section id="skills">
+    <div class="container">
+    <h2>Über mich</h2>
+      <div class="row">
+        <div class="col col-md-3">
+          <img src="{{ .Site.Data.homepage.about.image }}" style="width: 100%" />
+        </div>
+        <div class="col col-md-9">
+          <p>{{ .Site.Data.homepage.about.content }}</p>
+          <a href="/about" class="btn btn-primary">{{ .Site.Data.homepage.about.claim }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Skill -->
+  {{ if .Site.Data.homepage.skill.enable }}
+  <section id="skills">
+    <div class="container">
+    <h2>Skills</h2>
+    <p><i>Klick auf das Bild für mehr Informationen.</i></p>
+      <div class="row">
+        {{ range .Site.Data.homepage.skill.item }}
+            <div class="col">
+              <a href="{{.url}}" target="_blank"><img src="{{.logo}}" width="90px" alt="{{.title}}" loading="lazy"></a>
+            </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Certifications -->
+  {{ if .Site.Data.homepage.certifications.enable }}
+  <section id="certifications">
+    <div class="container">
+    <h2>Zertifizierungen</h2>
+    <p><i>Klick auf das Bild für mehr Informationen.</i></p>
+      <div class="row">
+        {{ range .Site.Data.homepage.certifications.item }}
+         <div class="col col-md-3">
+            <div class="card mx-auto">
+              <div class="card-img-top h-100 ">
+                <a href="{{.url}}" target="_blank"><img src="{{.image}}"height="120px" alt="{{.title}}" loading="lazy"></a>
+              </div>
+              <div class="card-footer">
+                {{ htmlUnescape .title | safeHTML }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Education -->
+  {{ if .Site.Data.homepage.education.enable }}
+  <section id="certifications">
+    <div class="container">
+    <h2>Ausbildung</h2>
+    <p><i>Klick auf das Bild für mehr Informationen.</i></p>
+      <div class="row">
+        {{ range .Site.Data.homepage.education.item }}
+         <div class="col col-md-4">
+            <div class="card mx-auto">
+              <div class="card-img-top h-100 ">
+                <a href="{{.url}}" target="_blank"><img src="{{.image}}"height="120px" alt="{{.title}}" loading="lazy"></a>
+              </div>
+              <div class="card-footer">
+                <p>{{ htmlUnescape .academy | safeHTML }}</p>
+                <p>{{ htmlUnescape .title | safeHTML }}</p>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Contact section -->
+  <section id="kontakt" class="mt-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1>Kontakt</h1>
+          <p>Kontaktaufnahme,<br />bitte per E-Mail an:<br /><br />
+            <a class="btn btn-warning" href="mailto:ansa-it@posteo.de">ansa-it[at]posteo.de</a>
+          </p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">
+          <h1>Social Links</h1>
+          <p>Weitere Profile<br />sind hier zu finden:</p>
+          <ul class="list-inline">
+          {{ if .Site.Data.homepage.social.twitter }}
+          <li class="list-inline-item"><a href="https://twitter.com/{{ .Site.Data.homepage.social.twitter }}" > <img
+                      class="contain" src="https://cdn.svgporn.com/logos/twitter.svg" alt="Twitter" loading="lazy"></a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.linkedin }}
+          <li class="list-inline-item"><a href="https://www.linkedin.com/in/{{ .Site.Data.homepage.social.linkedin }}">
+              <img class="contain" src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="LinkedIn" loading="lazy"> </a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.bitbucket }}
+          <li class="list-inline-item"><a href="https://bitbucket.org/{{ .Site.Data.homepage.social.bitbucket }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/bitbucket.svg" alt="Bitbucket" loading="lazy"> </a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.github }}
+          <li class="list-inline-item"><a href="https://github.com/{{ .Site.Data.homepage.social.github }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/github-icon.svg" alt="GitHub" loading="lazy"> </a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.gitlab }}
+          <li class="list-inline-item"><a href="https://gitlab.com/{{ .Site.Data.homepage.social.gitlab }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/gitlab.svg" alt="GitLab" loading="lazy"></a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.facebook }}
+          <li class="list-inline-item"><a href="https://www.facebook.com/{{ .Site.Data.homepage.social.facebook }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/facebook.svg" alt="Facebook" loading="lazy"></a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.instagram }}
+          <li class="list-inline-item"><a href="https://instagram.com/{{ .Site.Data.homepage.social.instagram }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/instagram-icon.svg" alt="Instagram" loading="lazy"></a></li>
+          {{ end }}{{ if .Site.Data.homepage.social.gmail }}
+          <li class="list-inline-item"><a href="mailto:{{ .Site.Data.homepage.social.gmail }}@gmail.com" > <img
+                      class="contain" src="https://cdn.svgporn.com/logos/google-gmail.svg" alt="Gmail" loading="lazy"></a></li>
+          {{ end }}{{ if .Site.Data.homepage.social.hotmail }}
+          <li class="list-inline-item"><a href="mailto:{{ .Site.Data.homepage.social.hotmail }}@hotmail.com" > <img
+                      class="contain" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftoutlook.svg" alt="Hotmail" loading="lazy"></a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.telegram }}
+          <li class="list-inline-item"><a href="https://t.me/{{ .Site.Data.homepage.social.telegram }}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/telegram.svg" alt="Telegram" loading="lazy"></a></li>
+          {{ end }} {{ if .Site.Data.homepage.social.whatsapp }}
+          <li class="list-inline-item"><a href="https://wa.me/{{ .Site.Data.homepage.social.whatsapp}}"> <img
+                      class="contain" src="https://cdn.svgporn.com/logos/whatsapp.svg" alt="Whatsapp" loading="lazy"></a></li>
+          {{ end }}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- End Contact section -->
+{{ end }}

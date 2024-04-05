@@ -1,0 +1,103 @@
+body {
+  display: block;
+  overflow-x: hidden;
+}
+nav {
+  background-color: white;
+}
+.nav-link {
+  color: #a9a9a9;
+  margin: auto 10px;
+}
+.nav-link:hover {
+  color: #000;
+}
+section {
+  padding-top: 2em;
+  background-color: white;
+}
+section h1 {
+  font-size: 3em;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  margin-bottom: 20px;
+}
+section p {
+  font-weight: 300;
+}
+button {
+  max-width: 50%;
+  border-radius: 50px !important;
+}
+#ueberuns, #galerie {
+  padding-bottom: 50px;
+}
+#termine h1 {
+  color: #FFF;
+}
+#termine {
+  background-color: #000;
+  padding-bottom: 50px;
+  color: #FFF;
+}
+#kontakt, #wortwolke {
+  text-align: center;
+  background-color: #EEE;
+  color: black;
+  padding-bottom: 50px;
+}
+#kontakt p {
+  font-size: 1em;
+}
+#kontakt h1 {
+  text-align: center;
+  color: black;
+}
+#kontakt h3 {
+  font-family: Arial;
+}
+#kontakt a, a:hover {
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+}
+#setlist {
+  background-color: #EEE;
+  padding-bottom: 50px;
+}
+#impressum, #dse, #checkliste {
+  padding-top: 100px;
+}
+.claim {
+  color: #000;
+  font-size: 0.75rem;
+}
+h3 {
+  color: #000;
+  font-family: typewriter;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 2em;
+}
+.navbar-toggler {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: 0 0 0 0;
+  border: 0;
+}
+.carousel-caption {
+  font-size: 4em;
+  padding-bottom: auto;
+  color: #FFF;
+  font-weight: 900;
+  text-transform: uppercase; 
+}
+
+.list-inline-item img {
+  height: 5em;
+}
+
+@media (max-width: 866px) { .carousel-caption { font-size: 3em; } }
+
+@media (max-width: 666px) { .carousel-caption { font-size: 1.5em; } }

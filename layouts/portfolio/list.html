@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section style="margin-top: 5em;" class="mx-5">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <div class="row">
+  {{ range .Pages }}
+  <div class="col-sm-4 mb-3">
+    <div class="card">
+      {{ with .Resources.GetMatch "card.png" }}
+      <img src="{{ .RelPermalink }}" class="card-img-top" alt="{{ .Title }}">
+      {{ end }}
+      <div class="card-body">
+        <h5 class="card-title">{{ .LinkTitle }}</h5>
+        <p class="card-text">{{ .Description }}</p>
+        <a href="{{ .RelPermalink }}" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+  </div>
+</section>
+{{ end }}
